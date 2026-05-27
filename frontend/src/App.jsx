@@ -1,11 +1,21 @@
 import { useState } from 'react'
-import UrlChecker from './components/UrlChecker'
-import ResultCard from './components/ResultCard'
+import UrlChecker       from './components/UrlChecker'
+import ResultCard       from './components/ResultCard'
+import FeatureExplainer from './components/FeatureExplainer'
+import HistoryPanel     from './components/HistoryPanel'
+import { useHistory }   from './hooks/useHistory'
 
 export default function App() {
-
-  // 'result' menyimpan data hasil analisis dari backend
   const [result, setResult] = useState(null)
+  const { history, addToHistory, removeFromHistory, clearHistory } = useHistory()
+
+  function handleResult(data) {
+    setResult(data)
+    // Simpan ke riwayat setiap kali ada hasil baru
+    addToHistory(data.url, data)
+  }
+
+  const [recheckUrl, setRecheckUrl] = useState('')
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -31,8 +41,20 @@ export default function App() {
           </p>
         </div>
 
-        <UrlChecker onResult={setResult} />
-        <ResultCard result={result} />
+        <UrlChecker
+          onResult={handleResult}
+          initialUrl={recheckUrl}
+        />
+
+        {result && <ResultCard result={result} />}
+        {result && <FeatureExplainer indicators={result.indicators} />}
+
+        <HistoryPanel
+          history={history}
+          onRecheck={(url) => { setRecheckUrl(url) }}
+          onRemove={removeFromHistory}
+          onClear={clearHistory}
+        />
 
       </main>
     </div>

@@ -3,10 +3,16 @@ import axios from 'axios'
 // import function from validator.js
 import { isValidUrl, normalizeUrl } from '../utils/validator'
 
-export default function UrlChecker({ onResult }) {
-
+export default function UrlChecker({ onResult, initialUrl }) {
   // 'url' contain user input form teks 
   const [url, setUrl] = useState('')
+
+  // Kalau initialUrl berubah (user klik item di riwayat),
+  // otomatis isi input dengan URL tersebut
+  useEffect(() => {
+    if (initialUrl) setUrl(initialUrl)
+  }, [initialUrl])
+
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   async function handleAnalyze() {

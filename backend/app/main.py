@@ -1,20 +1,25 @@
-# import FastAPI, class utama untuk membuat aplikasi API
+import os
 from fastapi import FastAPI
-
-# import CORSMiddleware agar frontend React bisa akses API ini
 from fastapi.middleware.cors import CORSMiddleware
+from app.router.analyze import router as analyze_router
 
-#buat instance aplikasi FastAPI
 app = FastAPI()
 
-# konfigurasi CORS
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
 app.add_middleware(
     CORSMiddleware,
-    # allow all HTTP method & header
-    allow_origins=["http://localhost:5173"],  
-    allow_methods=["*"],   
-    allow_headers=["*"],   
+    allow_origins=[
+        "http://localhost:5173",
+        FRONTEND_URL,
+        "*",  
+    ],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
+app.include_router(analyze_router)
 
 @app.get("/")
 def health_check():

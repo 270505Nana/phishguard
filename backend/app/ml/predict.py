@@ -7,11 +7,11 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 try:
     model         = joblib.load(os.path.join(BASE_DIR, 'phishguard_model.pkl'))
     feature_names = joblib.load(os.path.join(BASE_DIR, 'feature_names.pkl'))
-    print("✅ Model ML berhasil dimuat")
+    print("Model ML berhasil dimuat")
 except Exception as e:
     model         = None
     feature_names = []
-    print(f"⚠️  Model tidak ditemukan, pakai scoring manual: {e}")
+    print(f" Model tidak ditemukan, pakai scoring manual: {e}")
 
 
 def extract_fitur(url: str) -> dict:

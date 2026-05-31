@@ -1,6 +1,6 @@
 import { useState }      from 'react'
-import UrlChecker        from './components/UrlChecker'
-import ResultCard        from './components/ResultCard'
+import UrlChecker        from './components/Urlchecker'
+import ResultCard        from './components/Resultcard'
 import FeatureExplainer  from './components/FeatureExplainer'
 import HistoryPanel      from './components/HistoryPanel'
 import TipsPanel         from './components/TipsPanel'

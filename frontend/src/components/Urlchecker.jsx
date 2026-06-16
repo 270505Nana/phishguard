@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 // import function from validator.js
 import { isValidUrl, normalizeUrl } from '../utils/validator'

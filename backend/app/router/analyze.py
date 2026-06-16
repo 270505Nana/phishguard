@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from app.ml.predict import predict_url, extract_features
+from app.ml.predict import predict_url, extract_fitur
 
 router = APIRouter()
 
@@ -9,7 +9,7 @@ class AnalyzeRequest(BaseModel):
 
 
 def build_indicators(url: str) -> list:
-    f          = extract_features(url)
+    f          = extract_fitur(url)
     indicators = []
 
     if f['has_https']:

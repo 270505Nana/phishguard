@@ -3,7 +3,7 @@ import UrlChecker        from './components/Urlchecker'
 import ResultCard        from './components/Resultcard'
 import FeatureExplainer  from './components/FeatureExplainer'
 import HistoryPanel      from './components/HistoryPanel'
-import TipsPanel         from './components/TipsPanel'
+// import TipsPanel         from './components/TipsPanel'
 import BatchChecker      from './components/BatchChecker'
 import { useHistory }    from './hooks/useHistory'
 
@@ -136,7 +136,7 @@ export default function App() {
         )}
 
         {/* Tab: Tips Keamanan */}
-        {activeTab === 'tips' && (
+        {/* {activeTab === 'tips' && (
           <>
             <div className="text-center">
               <h2 className="text-2xl font-bold text-gray-800">
@@ -149,7 +149,7 @@ export default function App() {
 
             <TipsPanel />
           </>
-        )}
+        )} */}
 
       </main>
     </div>

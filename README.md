@@ -1,8 +1,8 @@
-# PhishGuard 🛡️
+# PhishGuard
 Aplikasi web untuk mendeteksi link phishing secara real-time.
 
 ## Demo
-🔗 [phishguard-xxx.vercel.app](https://phishguard-xxx.vercel.app)
+🔗 [phishguard-xxx.vercel.app](https://phishguard-virid.vercel.app/)
 
 ## Fitur
 - URL Risk Checker : skor 0–100 dengan label traffic light
